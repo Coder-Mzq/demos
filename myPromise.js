@@ -82,8 +82,6 @@ function resolvePromise(_promise2, x, r, j) {
     } else {
         r(x)
     }
-
-
 }
 
 _promise.prototype.then = function (onFulfilled, onRejected) {
