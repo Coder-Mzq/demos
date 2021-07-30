@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./myPromise.js"></script>
+    <!-- <script src="./_mypromise.js"></script> -->
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    let arr = new _promise((r, j) => {
+        setTimeout(() => {
+            r(1)
+        }, 1000);
+    }).then(res => {
+        return new _promise((r,j) => {
+            setTimeout(() => {
+                r(333)
+            },3000)
+        })
+    }).then(res => {
+        console.log(res, 2)
+    }).then(res => {
+        console.log(res, 3)
+    }).catch(err => {
+        console.log(err,'err')
+    }).finally(() => {
+        console.log(999)
+    })
+    // _promise.race([new _promise((r,j) => { setTimeout(() => {j(1)},3000) }),new _promise((r,j) => { setTimeout(() => { r(4)},1000) })]).then(res => {
+    //     console.log(res,'success')
+    // }).catch(err => {
+    //     console.log(err,'err')
+    // })
+    // Promise.all([new Promise((r,j) => { setTimeout(() => {j(1)},3000) }),function(){ return 1 },new Promise((r,j) => { r(2) }),new Promise((r,j) => { r(3) }),new Promise((r,j) => { setTimeout(() => { r(4)},5000) })]).then(res => {
+    //     console.log(res)
+    // }).catch(err => {
+    //     console.log(err,'err')
+    // })
+    // new Promise((r, j) => {
+    //     setTimeout(() => {
+    //         r(1)
+    //     }, 1000);
+    // }).then(res => {
+    //     return {then:function(res){
+    //         console.log(res,11111)
+    //     }}
+    // }).then(res => {
+    //     console.log(res,2)
+    // })
+
+
+    // Promise.all([new Promise((r,j) => { r(1) }),new Promise((r,j) => { r(2) }),function(a = 2.5){ console.log(a) },new Promise((r,j) => { r(3) })])
+
+</script>
